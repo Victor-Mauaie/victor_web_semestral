@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="estilo-dashboard.css">
+
+
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Pintos',     6480],
+          ['Raccao',      13000],
+          ['Sarradura',  300],
+          ['Vitaminas', 1000],
+          ['Vacinas',    1000],
+          ['Acrescimos',	1500]
+        ]);
+
+        var options = {
+          title: 'Despesas por lote'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawVisualization);
+
+      function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+          ['lote', 'Pintos', 'Raccao', 'Sarradura', 'Vitaminas', 'Vacinas', 'Acrescimos'],
+          ['1',  6480,      13000,         300,             1000,           1000,      1500],
+          ['2', 8000 ,      15000,        300,             1000,          1000,      1500],
+          ['3',  6000,      11000,        450,             807,           900,      1000],
+          ['4',  5850,      11100,        450,             968,           900,      1500],
+          ['5',  6000,      13000,         450,             1026,          1000,      15000]
+        ]);
+
+        var options = {
+          title : 'Dados da Criacao de todos os lotes',
+          vAxis: {title: 'Produto bruto'},
+          hAxis: {title: 'lote'},
+          seriesType: 'bars',
+          series: {5: {type: 'line'}}        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Lote', 'Vendas', 'Gastos'],
+          ['1',  42500,      23280],
+          ['2',  50000,      26800],
+          ['3',  40000,       22800],
+          ['4',  39000,      22800],
+          ['4',  40000,      23000]
+        ]);
+
+        var options = {
+          title: 'Desempenho da Empresa',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+    <script type="text/javascript">
+    google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Lote", "Mortes", { role: "style" } ],
+        ["1", 15, "#b87333"],
+        ["2", 7, "silver"],
+        ["3", 5, "gold"],
+        ["4", 9, "#3333CC"],
+        ["5", 8, "#ffA500"]
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "Quantidade de mortes por lote",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);
+  }
+  </script>
+</head>
+<body>
+	<div class="container">
+		<div id="curve_chart" class="chart"></div>
+		<div id="chart_div" class="chartg"></div>
+	</div>
+	<div class="container">
+		<div id="piechart" class="chart"></div>
+		<div id="columnchart_values" class="chartg"></div>
+	</div>
+
+</body>
+</html>
