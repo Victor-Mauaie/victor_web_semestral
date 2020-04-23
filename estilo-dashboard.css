@@ -38,16 +38,16 @@ height: 300px;
 	left: -250px ;
 	width: 250px;
 	height: 100%;
-	background: #042331;
+	background: transparent;
 	transition: all 0.5 ease;
 }
 
 .sidebar header{
 	font-size: 22px;
-	color: white;
+	color: black;
 	text-align: center;
 	line-height: 70px;
-	background: #063146;
+	background: transparent;
 	user-select: none;
 }
 
@@ -58,7 +58,7 @@ height: 300px;
 	width: 100%;
 	line-height: 65px;
 	font-size: 20px;
-	color: white;
+	color: red;
 	padding-left: 40px;
 	box-sizing: border-box;
 	border-top: 1px solid rgba(255,255,255,0.1);
